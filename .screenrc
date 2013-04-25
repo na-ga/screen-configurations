@@ -1,0 +1,57 @@
+#-----------------------------------------------------------------------------------------------------
+# .screenrc
+#
+# @author Katsutoshi Nagaoka
+# @since 13/04/05 14:31
+#-----------------------------------------------------------------------------------------------------
+
+#
+# initialize
+#
+shell bash                          # shell
+escape ^Tt                          # escape key
+autodetach on                       # autodetach on
+startup_message off                 # statup message off
+bindkey -m -t ;b stuff "g/:^M^F^B"  # mouse cursor
+bind \\                             # default keybind
+vbell off                           # disable vbell
+zombie kr                           # check when window exited (k: destory window, r: resurrect window)
+
+#
+# initalize layout
+#
+layout new default
+layout new sub1
+layout new sub2
+layout select default
+
+#
+# status line message
+#
+caption splitonly "%?%F%{= bW}%:%{= wk}%?%2n%f%07=%t%="
+hardstatus alwayslastline "%{= Wb}[%m/%d %02c] %016=%{= WK}%-w%50>%{= bW}%n %t%{-}%+w%-0< %="
+termcapinfo xterm* 'Co#256:pa#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm:'
+termcapinfo xterm* 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+
+#
+# screen command log (you will have to create a '~/.screenlog' directory)
+#
+log on
+deflog on
+logfile ".screenlog/%H_%Y%m%d%_%n.log"
+hardcopydir ".screenlog/"
+defscrollback 10000
+
+#
+# encode
+#
+defkanji utf8
+defencoding utf8
+encoding utf8
+bind u eval 'encoding utf8' 'info'
+bind e eval 'encoding eucjp' 'info'
+
+#
+# include .screenrc.local
+#
+source '.screenrc.local'

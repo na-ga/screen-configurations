@@ -1,0 +1,123 @@
+#-----------------------------------------------------------------------------------------------------
+# .screenrc.local
+#
+# @author Katsutoshi Nagaoka
+# @since 13/04/05 14:31
+#-----------------------------------------------------------------------------------------------------
+
+#
+# select
+#
+bind 0 eval 'select 0'
+bind 1 eval 'select 1'
+bind 2 eval 'select 2'
+bind 3 eval 'select 3'
+bind 4 eval 'select 4'
+bind 5 eval 'select 5'
+bind 6 eval 'select 6'
+bind 7 eval 'select 7'
+bind 8 eval 'select 8'
+bind 9 eval 'select 9'
+
+#
+# resize mode
+#
+bind r eval 'command -c cresize'
+bind -c cresize j eval 'resize -v +1'  'command -c cresize'
+bind -c cresize k eval 'resize -v -1'  'command -c cresize'
+bind -c cresize J eval 'resize -v +10' 'command -c cresize'
+bind -c cresize K eval 'resize -v -10' 'command -c cresize'
+bind -c cresize h eval 'resize -h +1'  'command -c cresize'
+bind -c cresize l eval 'resize -h -1'  'command -c cresize'
+bind -c cresize H eval 'resize -h +10' 'command -c cresize'
+bind -c cresize L eval 'resize -h -10' 'command -c cresize'
+bind -c cresize 1 eval 'resize 10'  'command -c cresize'
+bind -c cresize 2 eval 'resize 20'  'command -c cresize'
+bind -c cresize 3 eval 'resize 30'  'command -c cresize'
+bind -c cresize 4 eval 'resize 40'  'command -c cresize'
+bind -c cresize 5 eval 'resize 50'  'command -c cresize'
+bind -c cresize 6 eval 'resize 60'  'command -c cresize'
+bind -c cresize 7 eval 'resize 70'  'command -c cresize'
+bind -c cresize 8 eval 'resize 80'  'command -c cresize'
+bind -c cresize 9 eval 'resize 90'  'command -c cresize'
+bind -c cresize 0 eval 'resize 100' 'command -c cresize'
+bind -c cresize = eval 'resize ='   'command -c cresize'
+bind -c cresize m eval 'resize min' 'command -c cresize'
+bind -c cresize x eval 'resize max' 'command -c cresize'
+bind -c cresize ? eval 'echo "Resize mode: [j/J] = resize [+1|+10] / [k/K] = resize [-1|-10]" / [=|m|x] = resize [=|min|max]'
+
+#
+# layout mode
+#
+bind l eval 'command -c clayout'
+bind -c clayout s eval 'layout show' 'command -c clayout'
+bind -c clayout n eval 'layout new' 'select 0' 'layout show' 'command -c clayout'
+bind -c clayout 0 eval 'layout select 0' 'layout show' 'command -c clayout'
+bind -c clayout 1 eval 'layout select 1' 'layout show' 'command -c clayout'
+bind -c clayout 2 eval 'layout select 2' 'layout show' 'command -c clayout'
+bind -c clayout 3 eval 'layout select 3' 'layout show' 'command -c clayout'
+bind -c clayout 4 eval 'layout select 4' 'layout show' 'command -c clayout'
+bind -c clayout 5 eval 'layout select 5' 'layout show' 'command -c clayout'
+bind -c clayout 6 eval 'layout select 6' 'layout show' 'command -c clayout'
+bind -c clayout 7 eval 'layout select 7' 'layout show' 'command -c clayout'
+bind -c clayout 8 eval 'layout select 8' 'layout show' 'command -c clayout'
+bind -c clayout 9 eval 'layout select 9' 'layout show' 'command -c clayout'
+bind -c clayout ? eval 'echo "Layout mode: s = layout show / [0|1|2|3..] = layout select [0|1|2|3..] / n = layout new"'
+
+#
+# window mode (like vim)
+#
+bind w eval 'command -c cwindow'
+bind -c cwindow s eval 'split'           'focus' 'select 0' 'command -c cwindow'
+bind -c cwindow v eval 'split -v'        'focus' 'select 0' 'command -c cwindow'
+bind -c cwindow o eval 'only'            'command -c cwindow'
+bind -c cwindow c eval 'screen'          'command -c cwindow'
+bind -c cwindow x eval 'remove'          'command -c cwindow'
+bind -c cwindow w eval 'focus'           'command -c cwindow'
+bind -c cwindow h eval 'focus left'      'command -c cwindow'
+bind -c cwindow l eval 'focus right'     'command -c cwindow'
+bind -c cwindow j eval 'focus down'      'command -c cwindow'
+bind -c cwindow k eval 'focus up'        'command -c cwindow'
+bind -c cwindow t eval 'focus top'       'command -c cwindow'
+bind -c cwindow b eval 'focus bottom'    'command -c cwindow'
+bind -c cwindow H eval 'resize -h -3'    'command -c cwindow'
+bind -c cwindow L eval 'resize -h +3'    'command -c cwindow'
+bind -c cwindow J eval 'resize -v -3'    'command -c cwindow'
+bind -c cwindow K eval 'resize -v +3'    'command -c cwindow'
+bind -c cwindow = eval 'resize ='        'command -c cwindow'
+bind -c cwindow + eval 'resize max'      'command -c cwindow'
+bind -c cwindow - eval 'resize min'      'command -c cwindow'
+bind -c cwindow 0 eval 'select 0'        'command -c cwindow'
+bind -c cwindow 1 eval 'select 1'        'command -c cwindow'
+bind -c cwindow 2 eval 'select 2'        'command -c cwindow'
+bind -c cwindow 3 eval 'select 3'        'command -c cwindow'
+bind -c cwindow 4 eval 'select 4'        'command -c cwindow'
+bind -c cwindow 5 eval 'select 5'        'command -c cwindow'
+bind -c cwindow 6 eval 'select 6'        'command -c cwindow'
+bind -c cwindow 7 eval 'select 7'        'command -c cwindow'
+bind -c cwindow 8 eval 'select 8'        'command -c cwindow'
+bind -c cwindow 9 eval 'select 9'        'command -c cwindow'
+bind -c cwindow n eval 'next'            'command -c cwindow'
+bind -c cwindow p eval 'prev'            'command -c cwindow'
+bind -c cwindow P eval 'layout select 0' 'command -c cwindow'
+bind -c cwindow Q eval 'layout select 1' 'command -c cwindow'
+bind -c cwindow W eval 'layout select 2' 'command -c cwindow'
+bind -c cwindow E eval 'layout select 3' 'command -c cwindow'
+bind -c cwindow R eval 'layout select 4' 'command -c cwindow'
+bind -c cwindow T eval 'layout select 5' 'command -c cwindow'
+bind -c cwindow Y eval 'layout select 6' 'command -c cwindow'
+bind -c cwindow U eval 'layout select 7' 'command -c cwindow'
+bind -c cwindow I eval 'layout select 8' 'command -c cwindow'
+bind -c cwindow O eval 'layout select 9' 'command -c cwindow'
+bind -c cwindow N eval 'layout next'     'command -c cwindow'
+bind -c cwindow P eval 'layout prev'     'command -c cwindow'
+bind -c cwindow S eval 'layout show'    #'command -c cwindow'
+bind -c cwindow D eval 'layout show'     'command -c cwindow'
+bind -c cwindow C eval 'layout new' 'select 0' 'layout show' #'command -c cwindow'
+bind -c cwindow ? eval "echo -n 'Windows mode: [s/v] = split / o = only / c = screen / x = remove / [H|J|K|L|+|-|=] = resize / [H|J|K|L|+|-|=] = resize / [0-9] = select / [Q-P/C/S] = layout'" #'command -c cwindow'
+
+#
+# reload myself
+#
+bind s eval 'source ~/.screenrc.local' 'echo "reload screenrc ..done"'
+

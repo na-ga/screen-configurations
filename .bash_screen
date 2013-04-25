@@ -1,0 +1,54 @@
+#-----------------------------------------------------------------------------------------------------
+# .bash_screen
+#
+# @author Katsutoshi Nagaoka
+# @since 13/04/05 14:31
+#-----------------------------------------------------------------------------------------------------
+
+#
+# ereg function
+#
+function ereg(){
+    local _reg=$1
+    local _text=$2
+    echo "${_text}" | grep -E -q "${_reg}"
+    if [ $? -ne 0 ]; then
+        return 1
+    fi
+    return 0
+}
+
+#
+# check_ipaddress function
+#
+function check_ipaddress(){
+    local _text=$1
+    ereg '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+' "${_text}"
+    if [ $? -ne 0 ]; then
+        return 1
+    fi
+    return 0
+}
+
+#
+# ssh_screen function
+#
+function ssh_screen(){
+    eval server=\${$#}
+    check_ipaddres "${server}"
+    if [ $? -eq 0 ]; then
+        server=$(echo ${server})
+    else
+        #server=$(echo ${server} | cut -d . -f 1)
+        server=$(echo ${server})
+    fi
+    screen -t ${server} ssh "$@"
+}
+
+#
+# alias ssh if term is screen
+#
+if [ "$TERM" = "screen" ]; then
+  alias ssh=ssh_screen
+fi
+
